@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="my_robot">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="growbot">
 <xacro:macro name="arm" params="prefix radius length reflect">
 
     <!-- rpy (roll pitch yaw) describes rotation in radians -->
     <!-- xyz describes translation in meters -->
-    <link name="${prefix}_arm">
+    <link name="${prefix}_wheel">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 1"/> <!-- set the origin to 0 to recenter the link to the child_frame -->
             <geometry>
@@ -25,21 +25,21 @@
     </link>
 
 
-    <joint name="base_to_${prefix}_arm" type="continuous">
+    <joint name="base_to_${prefix}_wheel" type="continuous">
         <axis xyz="0 1 0"/>
         <parent link="base_link"/>
-        <child link="${prefix}_arm"/>
+        <child link="${prefix}_wheel"/>
         <origin rpy="0.2 0 0" xyz="0 ${reflect*0.7} 0"/> <!-- move the child_frame with respect to parent_frame -->
         <limit effort="30" velocity="1.0"/>
     </joint>
 
 
-    <transmission name="${prefix}_arm_transmission">
+    <transmission name="${prefix}_wheel_transmission">
         <type>transmission_interface/SimpleTransmission</type>
         <actuator name="$${prefix}_motor">
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
-        <joint name="base_to_${prefix}_arm">
+        <joint name="base_to_${prefix}_wheel">
             <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         </joint>
     </transmission>

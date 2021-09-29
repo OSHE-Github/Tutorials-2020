@@ -2,8 +2,8 @@
 <package format="2">
   <name>tutorial</name>
   <version>0.0.0</version>
-  <description>The tutorial package contains example robot</description>
-  <maintainer email="nam@todo.todo">nam</maintainer>
+  <description>The tutorial package contains growbot</description>
+  <maintainer email="wilsonjholmes@gmail.com">Wilson</maintainer>
   <license>TODO</license>
 
   <buildtool_depend>catkin</buildtool_depend>

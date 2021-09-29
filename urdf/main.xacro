@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="my_robot">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="growbot">
 
-    <xacro:include filename="$(find tutorial)/urdf/arm.xacro" />
-    <xacro:include filename="$(find tutorial)/urdf/head.xacro" />
+    <xacro:include filename="$(find tutorial)/urdf/wheel.xacro" />
+    <xacro:include filename="$(find tutorial)/urdf/camera.xacro" />
     
     <link name="base_link">
         <visual>
@@ -22,9 +22,9 @@
         </inertial>
     </link>
     
-    <xacro:arm prefix="right" length=".7" radius=".2" reflect="1" />
-    <xacro:arm prefix="left" length=".7" radius=".2" reflect="-1" />
-    <xacro:head />
+    <xacro:wheel prefix="right" length=".7" radius=".2" reflect="1" />
+    <xacro:wheel prefix="left" length=".7" radius=".2" reflect="-1" />
+    <xacro:camera />
     
     <!-- Add ROS plugin so we can interact with our robot -->
     <gazebo>

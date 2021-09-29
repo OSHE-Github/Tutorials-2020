@@ -12,20 +12,20 @@ From home directory create /catkin_ws/src folder and run the following command
 ```
 mkdir -p catkin_ws/src
 cd catkin_ws/src
-git clone https://github.com/utra-robosoccer/Tutorials-2020.git
+git clone https://github.com/OSHE-Github/Tutorials-2020.git
 ```
 
 ## Updating Dependencies
 ```
 cd ~/catkin_ws/
 rosdep update
-rosdep install --from-paths src --ignore-src -r -y --rosdistro melodic
+rosdep install --from-paths src --ignore-src -r -y --rosdistro noetic
 ```
 
 ## Installing Controllers For Robot
 ```
 sudo apt-get update
-sudo apt-get install ros-melodic-ros-controllers
+sudo apt-get install ros-noetic-ros-controllers
 ```
 
 
@@ -33,8 +33,8 @@ sudo apt-get install ros-melodic-ros-controllers
 First build the project and source the setup file so that the system knows where to look for your build files
 ```
 cd ~/catkin_ws
-catkin build tutorial
-source devel/setup.bash
+catkin_make
+source devel/setup.zsh
 ```
 
 ## Launch the robot
@@ -49,7 +49,7 @@ Open a new terminal to run commands for the robot
 
 ```
 cd ~/catkin_ws
-source devel/setup.bash
+source devel/setup.zsh
 ```
 To run the main node run this command
 ```
